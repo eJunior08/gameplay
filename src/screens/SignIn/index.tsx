@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Text, Image, StatusBar, View } from "react-native";
 
@@ -7,16 +8,16 @@ import ButtonIcon from "../../components/ButtonIcon";
 
 import { styles } from "./styles";
 
-const SignIn = () => {
+export const SignIn = () => {
+  const navigation = useNavigation();
   const [text, setText] = useState("");
+
+  function handelSignIn() {
+    navigation.navigate("Home");
+  }
 
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
       <Image
         source={IllustrationImg}
         style={styles.image}
@@ -25,9 +26,8 @@ const SignIn = () => {
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Organize{`\n`}
-          suas jogatinas{`\n`}
-          facilmente
+          Conecte-se{`\n`}e organize suas{`\n`}
+          jogatinas
         </Text>
 
         <Text style={styles.subtitle}>
@@ -35,10 +35,8 @@ const SignIn = () => {
           favoritos com seus amigos
         </Text>
 
-        <ButtonIcon title="Entrar com discord" activeOpacity={0.7} />
+        <ButtonIcon title="Entrar com discord" onPress={handelSignIn} />
       </View>
     </View>
   );
 };
-
-export default SignIn;
