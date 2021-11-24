@@ -10,7 +10,7 @@ import AppLoading from "expo-app-loading";
 import { Routes } from "./src/routes";
 import { StatusBar } from "react-native";
 import { Background } from "./src/components/Background";
-// import { StatusBar } from "expo-status-bar";
+
 
 const App = () => {
   const [fontsLoaded] = useFonts({
